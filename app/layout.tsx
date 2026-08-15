@@ -18,7 +18,10 @@ const manrope = Manrope({
 });
 
 const siteUrl = getSiteUrl();
-const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const googleVerification = [
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  "QtQbSR5mJlDTzKY5-I5mJs5zLIv6rudGtZP5LSUDYYs",
+].filter((value, index, all): value is string => Boolean(value) && all.indexOf(value) === index);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -67,9 +70,9 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { "az-AZ": "/", "x-default": "/" },
   },
-  ...(googleVerification
-    ? { verification: { google: googleVerification } }
-    : {}),
+  verification: {
+    google: googleVerification,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
