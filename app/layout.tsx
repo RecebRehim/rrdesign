@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { LanguageProvider } from "@/components/language-provider";
 import { INSTAGRAM_URL } from "@/lib/content";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -16,11 +17,17 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://rrdesign.az";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
   title: {
     default: "RR Design — Website & Automation | Bakı",
     template: "%s · RR Design",
