@@ -1,57 +1,94 @@
 "use client";
 
-import { useLanguage } from "@/components/language-provider";
-import { INSTAGRAM_DM, INSTAGRAM_URL } from "@/lib/content";
+import { useState } from "react";
+import { FadeIn } from "@/components/fade-in";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, intentOptions, niches } from "@/lib/content";
+import { waContact } from "@/lib/whatsapp";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function Contact() {
-  const { copy } = useLanguage();
+  const [niche, setNiche] = useState<string>(niches[0].label);
+  const [instagram, setInstagram] = useState("");
+  const [intent, setIntent] = useState<string>(intentOptions[0].label);
+
+  const href = waContact({ niche, instagram, intent });
 
   return (
-    <section id="contact" className="px-5 py-16 sm:px-8 sm:py-24">
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-ink px-6 py-14 text-paper sm:px-12 sm:py-16">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#e8b39a]">
-          {copy.contact.kicker}
-        </p>
-        <div className="mt-5 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-          <div>
-            <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-              {copy.contact.title}
-            </h2>
-            <p className="mt-4 max-w-lg text-paper/65">{copy.contact.lead}</p>
-            <div className="mt-7 flex flex-wrap gap-2">
-              {copy.contact.prompts.map((prompt) => (
-                <a
-                  key={prompt}
-                  href={INSTAGRAM_DM}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-white/12 px-3 py-1.5 text-xs text-paper/80 hover:border-[#e8b39a] hover:text-white"
-                >
-                  {prompt}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col items-start gap-4">
-            <a
-              href={INSTAGRAM_DM}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-full bg-copper px-6 py-3 text-sm font-semibold text-white hover:bg-copper-deep"
-            >
-              {copy.cta.dm}
-            </a>
+    <section id="elaqe" className="px-5 py-12 sm:px-8 sm:py-20">
+      <div className="mx-auto max-w-xl">
+        <FadeIn>
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
+            Sahənizi yazın, qısa cavab verək.
+          </h2>
+          <form
+            className="mt-8 space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.open(href, "_blank", "noopener,noreferrer");
+            }}
+          >
+            <label className="block text-sm font-medium">
+              Sahə
+              <Select value={niche} onValueChange={setNiche}>
+                <SelectTrigger className="mt-2 h-12 w-full rounded-2xl border-line bg-card px-4 text-base">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="rounded-2xl bg-card">
+                  {niches.map((item) => (
+                    <SelectItem key={item.id} value={item.label}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </label>
+            <label className="block text-sm font-medium">
+              Instagram
+              <input
+                type="text"
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
+                placeholder="@istifadeci"
+                className="mt-2 h-12 w-full rounded-2xl border border-line bg-card px-4 text-base outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
+              />
+            </label>
+            <label className="block text-sm font-medium">
+              Nə istəyirsiniz?
+              <Select value={intent} onValueChange={setIntent}>
+                <SelectTrigger className="mt-2 h-12 w-full rounded-2xl border-line bg-card px-4 text-base">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="rounded-2xl bg-card">
+                  {intentOptions.map((item) => (
+                    <SelectItem key={item.id} value={item.label}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </label>
+            <button type="submit" className="btn-primary w-full">
+              WhatsApp-a göndər
+            </button>
+          </form>
+          <p className="mt-6 text-sm text-mute">
+            Birbaşa:{" "}
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-paper/55 hover:text-paper"
+              className="font-semibold text-ink"
             >
-              instagram.com/rrdesign.az
+              {INSTAGRAM_HANDLE}
             </a>
-            <p className="text-xs text-paper/40">{copy.contact.note}</p>
-          </div>
-        </div>
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

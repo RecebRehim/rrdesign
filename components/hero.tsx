@@ -1,79 +1,56 @@
-"use client";
-
-import { useLanguage } from "@/components/language-provider";
-import { INSTAGRAM_DM } from "@/lib/content";
+import { Check } from "lucide-react";
 import {
   PreviewDriveAZ,
   PreviewSafira,
   PreviewSah,
 } from "@/components/site-previews";
+import { FadeIn } from "@/components/fade-in";
+import { waDefault } from "@/lib/whatsapp";
+
+const badges = [
+  "Mobil-first",
+  "80+ PageSpeed",
+  "SEO hazır",
+  "WhatsApp inteqrasiya",
+];
 
 export function Hero() {
-  const { copy } = useLanguage();
-
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden px-5 pb-16 pt-28 sm:px-8 sm:pt-32"
-    >
+    <section id="top" className="px-5 pb-12 pt-12 sm:px-8 sm:pt-16 sm:pb-16">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
-          <p
-            className="rise text-[12px] font-semibold uppercase tracking-[0.22em] text-copper"
-            style={{ animationDelay: "40ms" }}
-          >
-            {copy.hero.kicker}
+        <FadeIn>
+          <p className="text-[12px] font-semibold tracking-[0.16em] text-cta">
+            Website & Automation & AI
           </p>
           <h1 className="mt-5 font-display text-[18vw] font-extrabold leading-[0.86] tracking-[-0.05em] sm:text-7xl lg:text-[5.4rem]">
-            {copy.hero.title.map((line, i) => (
-              <span
-                key={line}
-                className="rise block"
-                style={{ animationDelay: `${120 + i * 90}ms` }}
-              >
-                {line}
-              </span>
-            ))}
+            <span className="block">Sayt.</span>
+            <span className="block">DM Bot.</span>
+            <span className="block">Nəticə.</span>
           </h1>
-          <p
-            className="rise mt-6 max-w-md text-[15px] leading-relaxed text-mute sm:text-base"
-            style={{ animationDelay: "420ms" }}
-          >
-            {copy.hero.lead}
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
+            Yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website-lər və
+            Instagram DM-lərini cavabsız qoymayan avtomatlaşdırma.
           </p>
-          <div
-            className="rise mt-8 flex flex-wrap items-center gap-3"
-            style={{ animationDelay: "520ms" }}
-          >
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#saheler" className="btn-primary">
+              Canlı demolara bax
+            </a>
             <a
-              href={INSTAGRAM_DM}
+              href={waDefault}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex rounded-full bg-copper px-5 py-3 text-sm font-semibold text-white hover:bg-copper-deep"
+              className="btn-secondary"
             >
-              {copy.cta.dm}
-            </a>
-            <a
-              href="#work"
-              className="inline-flex rounded-full border border-ink/15 bg-card px-5 py-3 text-sm font-semibold hover:border-ink/30"
-            >
-              {copy.cta.work}
+              Nümunəni WhatsApp-a al
             </a>
           </div>
-          <p
-            className="rise mt-6 text-xs text-mute"
-            style={{ animationDelay: "600ms" }}
-          >
-            {copy.hero.pill}
-          </p>
-          <div className="rise mt-10 sm:hidden" style={{ animationDelay: "280ms" }}>
+          <div className="mt-10 sm:hidden">
             <PreviewDriveAZ />
           </div>
-        </div>
-
-        <div
-          className="rise relative mx-auto hidden h-[420px] w-full max-w-[520px] sm:block"
-          style={{ animationDelay: "280ms" }}
+        </FadeIn>
+        <FadeIn
+          delay={0.12}
+          className="relative mx-auto hidden h-[420px] w-full max-w-[520px] sm:block"
         >
           <div className="absolute left-[8%] top-0 w-[78%] rotate-[-6deg]">
             <PreviewDriveAZ />
@@ -84,19 +61,19 @@ export function Hero() {
           <div className="absolute bottom-0 left-[4%] w-[70%] rotate-[-2deg]">
             <PreviewSah />
           </div>
-        </div>
+        </FadeIn>
       </div>
-
-      <dl className="mx-auto mt-16 grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
-        {copy.stats.map((item) => (
-          <div key={item.label} className="bg-card px-5 py-5 sm:px-6">
-            <dt className="text-xs text-mute">{item.label}</dt>
-            <dd className="mt-1 font-display text-2xl font-bold tracking-tight">
-              {item.value}
-            </dd>
+      <div className="mx-auto mt-12 grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-4">
+        {badges.map((badge) => (
+          <div
+            key={badge}
+            className="flex items-center gap-2 rounded-[24px] border border-line bg-card px-4 py-3 text-sm font-medium shadow-[0_18px_50px_-24px_rgba(20,18,16,0.45)]"
+          >
+            <Check className="size-4 shrink-0 text-cta" strokeWidth={2.2} />
+            {badge}
           </div>
         ))}
-      </dl>
+      </div>
     </section>
   );
 }

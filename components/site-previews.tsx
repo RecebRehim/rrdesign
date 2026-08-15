@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+
 function BrowserChrome({
-  url,
+  label,
   children,
   dark = false,
 }: {
-  url: string;
-  children: React.ReactNode;
+  label: string;
+  children: ReactNode;
   dark?: boolean;
 }) {
   return (
@@ -28,7 +30,7 @@ function BrowserChrome({
             dark ? "bg-white/8 text-white/50" : "bg-white text-black/40"
           }`}
         >
-          {url.replace("https://", "")}
+          {label}
         </span>
       </div>
       <div className="preview-screen aspect-[16/10] overflow-hidden">{children}</div>
@@ -38,7 +40,7 @@ function BrowserChrome({
 
 export function PreviewDriveAZ() {
   return (
-    <BrowserChrome url="drive-az.vercel.app" dark>
+    <BrowserChrome label="rentacar.az" dark>
       <div className="flex h-full flex-col bg-[#0b1220] p-4 text-white">
         <div className="flex items-center justify-between text-[8px] tracking-wide text-white/50">
           <span className="font-semibold text-white">DriveAZ</span>
@@ -68,7 +70,7 @@ export function PreviewDriveAZ() {
 
 export function PreviewSah() {
   return (
-    <BrowserChrome url="sah-avtotelim.vercel.app" dark>
+    <BrowserChrome label="avtotelim.az" dark>
       <div className="flex h-full flex-col bg-[#10140f] p-4 text-[#f3ead4]">
         <p className="text-[8px] tracking-[0.22em] text-[#d4a84b]">SÜRÜCÜLÜK TƏLİMİ</p>
         <p className="mt-3 font-display text-[16px] font-extrabold leading-none">
@@ -96,7 +98,7 @@ export function PreviewSah() {
 
 export function PreviewMindcraft() {
   return (
-    <BrowserChrome url="mind-craft-blue.vercel.app">
+    <BrowserChrome label="akademiya.az">
       <div className="flex h-full flex-col bg-gradient-to-br from-[#0b1f4a] via-[#123a7a] to-[#1d6cff] p-4 text-white">
         <p className="text-[8px] font-semibold tracking-wide text-sky-200">
           MINDCRAFT ACADEMY
@@ -123,7 +125,7 @@ export function PreviewMindcraft() {
 
 export function PreviewSafira() {
   return (
-    <BrowserChrome url="safira-dental-demo.vercel.app">
+    <BrowserChrome label="klinika.az">
       <div className="flex h-full bg-[#f7f1ea]">
         <div className="flex w-[58%] flex-col justify-between p-4">
           <p className="text-[8px] tracking-[0.18em] text-[#9a6b55]">STOMATOLOGİYA</p>
@@ -147,7 +149,7 @@ export function PreviewSafira() {
 
 export function PreviewVetCare() {
   return (
-    <BrowserChrome url="vet-clinic-demo-roan.vercel.app">
+    <BrowserChrome label="vetklinika.az">
       <div className="flex h-full flex-col bg-[#f4f7f2] p-4">
         <div className="flex items-center justify-between">
           <span className="text-[9px] font-bold text-[#1f3d2a]">VetCare</span>
@@ -175,7 +177,7 @@ export function PreviewVetCare() {
 
 export function PreviewIelts() {
   return (
-    <BrowserChrome url="ielts-teacher-demo.vercel.app">
+    <BrowserChrome label="muellim.az">
       <div className="flex h-full bg-[#faf6ef]">
         <div className="flex w-[62%] flex-col justify-between p-4">
           <p className="text-[8px] text-[#6b5a3c]">IELTS Instructor</p>

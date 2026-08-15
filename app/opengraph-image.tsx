@@ -1,15 +1,10 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "RR Design — Website & Automation · Baku";
+export const alt = "RR DESIGN — Website & Automation";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function OpenGraphImage() {
-  const logo = await readFile(join(process.cwd(), "public/logo-white.png"));
-  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
-
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
@@ -19,29 +14,24 @@ export default async function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#141210",
-          color: "#f3eee4",
+          background: "#0A0A0A",
+          color: "#FFFFFF",
           padding: 72,
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <img src={logoSrc} width={88} height={88} alt="" />
-          <div style={{ fontSize: 22, opacity: 0.55 }}>@rrdesign.az</div>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+        <div style={{ fontSize: 22, opacity: 0.55 }}>@rrdesign.az · Bakı</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div
             style={{
               fontSize: 72,
-              fontWeight: 800,
+              fontWeight: 700,
               letterSpacing: -2,
               lineHeight: 1,
             }}
           >
-            Website & Automation
+            RR DESIGN
           </div>
-          <div style={{ fontSize: 28, opacity: 0.72, maxWidth: 780 }}>
-            Niş saytları və Instagram DM avtomatlaşdırması — Bakı
-          </div>
+          <div style={{ fontSize: 32, opacity: 0.8 }}>Website & Automation</div>
         </div>
       </div>
     ),

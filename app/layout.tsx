@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
-import { LanguageProvider } from "@/components/language-provider";
 import { INSTAGRAM_URL } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site-url";
+import { waDefault } from "@/lib/whatsapp";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -29,32 +29,33 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
   },
   title: {
-    default: "RR Design — Website & Automation | Bakı",
-    template: "%s · RR Design",
+    default:
+      "RR DESIGN | Satış gətirən saytlar və Instagram avtomatlaşdırması | Bakı",
+    template: "%s · RR DESIGN",
   },
   description:
-    "Bakıda bizneslər üçün niş website-lər və Instagram DM avtomatlaşdırması. Hazır demo-lar: klinika, təhsil, avto, icarə. Vercel üzərində canlı.",
+    "Yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website və 24/7 DM avtomatlaşdırması. İlk sayt 100 AZN. Bakı.",
   keywords: [
     "website Bakı",
     "sayt hazırlanması",
     "Instagram DM avtomatlaşdırma",
     "RR Design",
-    "landing page Azərbaycan",
+    "vizitka sayt 100 AZN",
   ],
-  authors: [{ name: "RR Design", url: INSTAGRAM_URL }],
+  authors: [{ name: "RR DESIGN", url: INSTAGRAM_URL }],
   openGraph: {
-    title: "RR Design — Website & Automation",
+    title: "RR DESIGN | Satış gətirən saytlar və Instagram avtomatlaşdırması",
     description:
-      "Niş website-lər və DM avtomatlaşdırması. Bakı biznesləri üçün — demo-dan brendə.",
+      "Yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website və 24/7 DM avtomatlaşdırması. İlk sayt 100 AZN. Bakı.",
     locale: "az_AZ",
-    alternateLocale: ["en_US"],
     type: "website",
-    siteName: "RR Design",
+    siteName: "RR DESIGN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "RR Design — Website & Automation",
-    description: "Niş website-lər və Instagram DM avtomatlaşdırması · Bakı",
+    title: "RR DESIGN | Website & Automation | Bakı",
+    description:
+      "Yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website və 24/7 DM avtomatlaşdırması. İlk sayt 100 AZN. Bakı.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
@@ -62,40 +63,37 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "RR Design",
+  "@type": "LocalBusiness",
+  name: "RR DESIGN",
   alternateName: "rrdesign.az",
   description:
-    "Website design and Instagram DM automation for businesses in Baku.",
-  url: siteUrl,
-  sameAs: [INSTAGRAM_URL],
-  areaServed: { "@type": "City", name: "Baku" },
+    "Yerli bizneslər üçün sahənizə uyğun website və Instagram DM avtomatlaşdırması. Bakı.",
+  url: "https://rrdesign.az",
+  image: `${siteUrl}/logo.png`,
+  telephone: "+994552591903",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Baku",
+    addressLocality: "Bakı",
     addressCountry: "AZ",
   },
-  serviceType: [
-    "Website design",
-    "Landing pages",
-    "Instagram DM automation",
-    "WhatsApp sales flow",
-  ],
+  areaServed: { "@type": "City", name: "Bakı" },
+  sameAs: [INSTAGRAM_URL, waDefault],
+  priceRange: "100 AZN",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="az"
-      className={`${bricolage.variable} ${manrope.variable} h-full antialiased`}
+      className={`${bricolage.variable} ${manrope.variable} h-full antialiased font-sans`}
     >
-      <body className="min-h-full bg-paper text-ink">
+      <body className="min-h-full bg-bg text-ink">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div className="grain" aria-hidden="true" />
-        <LanguageProvider>{children}</LanguageProvider>
+        {children}
       </body>
     </html>
   );
