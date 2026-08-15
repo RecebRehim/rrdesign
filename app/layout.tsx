@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
+import { JsonLd } from "@/components/json-ld";
 import { INSTAGRAM_URL } from "@/lib/content";
 import { getJsonLd, seo } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site-url";
@@ -22,6 +23,8 @@ const googleVerification = [
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   "QtQbSR5mJlDTzKY5-I5mJs5zLIv6rudGtZP5LSUDYYs",
 ].filter((value, index, all): value is string => Boolean(value) && all.indexOf(value) === index);
+const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
+const yandexVerification = process.env.NEXT_PUBLIC_YANDEX_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -66,12 +69,12 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: {
-    canonical: "/",
-    languages: { "az-AZ": "/", "x-default": "/" },
-  },
   verification: {
     google: googleVerification,
+    other: {
+      ...(bingVerification ? { "msvalidate.01": bingVerification } : {}),
+      ...(yandexVerification ? { "yandex-verification": yandexVerification } : {}),
+    },
   },
 };
 
@@ -82,10 +85,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bricolage.variable} ${manrope.variable} h-full antialiased font-sans`}
     >
       <body className="min-h-full bg-bg text-ink">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(getJsonLd()) }}
-        />
+        <JsonLd data={getJsonLd()} />
         <div className="grain" aria-hidden="true" />
         {children}
       </body>

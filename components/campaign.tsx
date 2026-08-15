@@ -40,7 +40,12 @@ export function Campaign() {
           >
             WhatsApp-da yeri tut
           </a>
-          <p className="mt-4 text-sm text-white/55">Bu ay üçün 2 yer qaldı</p>
+          <p className="mt-4 text-sm text-white/55">
+            Bu ay üçün 2 yer qaldı ·{" "}
+            <a href="/vizitka-sayt" className="underline decoration-white/30 hover:text-white">
+              Kampaniya səhifəsi
+            </a>
+          </p>
         </div>
       </FadeIn>
     </section>

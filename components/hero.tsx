@@ -20,7 +20,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <FadeIn>
           <p className="text-[12px] font-semibold tracking-[0.16em] text-cta">
-            Website & Automation & AI
+            Sayt hazırlanması · DM Bot · Bakı
           </p>
           <h1 className="mt-5 font-display text-[18vw] font-extrabold leading-[0.86] tracking-[-0.05em] sm:text-7xl lg:text-[5.4rem]">
             <span className="block">Sayt.</span>
@@ -28,11 +28,12 @@ export function Hero() {
             <span className="block">Nəticə.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
-            Bakıda yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website
-            və Instagram DM-lərini cavabsız qoymayan DM Bot.
+            Bakıda sayt hazırlanması və Instagram/WhatsApp DM Bot. Yerli
+            bizneslər üçün 24 saata vizitka sayt, sahənizə uyğun website və
+            mesajları cavabsız qoymayan avtomatlaşdırma.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#saheler" className="btn-primary">
+            <a href="/#saheler" className="btn-primary">
               Canlı demolara bax
             </a>
             <a

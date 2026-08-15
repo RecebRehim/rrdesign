@@ -95,4 +95,16 @@ export const faqItems = [
     q: "Mətni kim yazır?",
     a: "Demo-larda sahə mətni var, sizin məlumatlarla uyğunlaşdırırıq.",
   },
+  {
+    q: "SEO daxildir?",
+    a: "Bəli. Səhifə başlığı, təsvir, mobil uyğunluq və sürətli açılış daxildir. Google-da yer rəqabət və vaxtdan da asılıdır — texniki baza hazır verilir.",
+  },
+  {
+    q: "Instagram DM Bot üçün nə lazımdır?",
+    a: "Instagram Professional hesabı və WhatsApp Business nömrəsi. Bot 24/7 ilk cavab verir, lead-i sizə ötürür.",
+  },
+  {
+    q: "Hansı sahələr üçün sayt hazırlayırsınız?",
+    a: "Klinika, təhsil/kurs, rent a car, sürücülük məktəbi və fərdi mütəxəssis. Hər biri üçün canlı demo var.",
+  },
 ];

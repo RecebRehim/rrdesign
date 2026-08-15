@@ -4,6 +4,7 @@ const items = [
   {
     num: "01",
     title: "Sahə website-ləri",
+    href: "/sayt-hazirlanmasi",
     body: "Klinika, təhsil, avto, icarə, fərdi mütəxəssis - hazır, sınaqdan keçmiş struktur. Brend, rəng, mətn və WhatsApp nömrəsi sizə uyğunlaşdırılır.",
     points: [
       "Landing və çoxsəhifəli sayt",
@@ -14,12 +15,14 @@ const items = [
   {
     num: "02",
     title: "DM Bot",
+    href: "/instagram-dm-bot",
     body: "Instagram və WhatsApp-da gələn mesajlar cavabsız qalmır. Qiymət, randevu, ünvan - bot soruşur, lead-i toplayır, sizə ötürür.",
     points: ["Instagram DM və komment", "WhatsApp satış axını", "24/7 ilk cavab"],
   },
   {
     num: "03",
     title: "Lead və satış axını",
+    href: "/vizitka-sayt",
     body: "Saytdakı forma, düymə və paket seçimi birbaşa WhatsApp-a düşür. Müştəri yolu qısa - sizə yalnız bağlamaq qalır.",
     points: [
       "WhatsApp CTA sistemi",
@@ -59,6 +62,12 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
+                <a
+                  href={item.href}
+                  className="mt-auto pt-6 text-sm font-semibold text-cta hover:text-cta-deep"
+                >
+                  Ətraflı →
+                </a>
               </article>
             </FadeIn>
           ))}

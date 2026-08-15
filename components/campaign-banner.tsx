@@ -12,7 +12,7 @@ export function CampaignBanner() {
           </p>
         </div>
         <a
-          href="#kampaniya"
+          href="/vizitka-sayt"
           className="shrink-0 rounded-full bg-cta px-3 py-1.5 text-[12px] font-semibold text-white hover:bg-cta-deep"
         >
           Kampaniyadan yararlan

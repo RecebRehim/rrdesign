@@ -2,13 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { navLinks } from "@/lib/routes";
 import { waDefault } from "@/lib/whatsapp";
-
-const links = [
-  { href: "#saheler", label: "Sahələr" },
-  { href: "#xidmetler", label: "Xidmətlər" },
-  { href: "#faq", label: "FAQ" },
-];
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -22,10 +18,10 @@ export function Header() {
         Əsas məzmuna keç
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link href="/#top" className="flex items-center gap-2.5">
           <Image
             src="/logo.png"
-            alt="RR Design"
+            alt="RR DESIGN — Bakıda sayt hazırlanması"
             width={40}
             height={40}
             priority
@@ -37,12 +33,15 @@ export function Header() {
             </span>
             <span className="block text-[11px] text-mute">Bakı · Studio</span>
           </span>
-        </a>
-        <nav className="hidden items-center gap-7 text-[14px] font-medium text-ink/70 md:flex">
-          {links.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-ink">
+        </Link>
+        <nav
+          aria-label="Əsas"
+          className="hidden items-center gap-7 text-[14px] font-medium text-ink/70 md:flex"
+        >
+          {navLinks.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-ink">
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
@@ -71,10 +70,14 @@ export function Header() {
       {open ? (
         <div className="border-t border-line bg-bg px-5 py-4 md:hidden">
           <div className="flex flex-col gap-3 text-sm font-medium">
-            {links.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            {navLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+              >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href={waDefault}

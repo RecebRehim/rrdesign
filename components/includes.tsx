@@ -17,6 +17,13 @@ export function Includes() {
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
             100 AZN-ə nə daxildir?
           </h2>
+          <p className="mt-4 text-base text-mute">
+            Vizitka sayt kampaniyası —{" "}
+            <a href="/vizitka-sayt" className="font-semibold text-ink underline decoration-line">
+              şərtlərə bax
+            </a>
+            .
+          </p>
         </FadeIn>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {features.map((item, i) => (

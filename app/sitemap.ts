@@ -1,13 +1,16 @@
 import type { MetadataRoute } from "next";
+import { publicPages } from "@/lib/routes";
 import { getSiteUrl } from "@/lib/site-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: getSiteUrl(),
+  const siteUrl = getSiteUrl();
+
+  return publicPages
+    .filter((page) => page.path !== "/llms.txt")
+    .map((page) => ({
+      url: page.path === "/" ? siteUrl : `${siteUrl}${page.path}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+    }));
 }
