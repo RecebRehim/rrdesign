@@ -64,20 +64,28 @@ export const projects = [
 
 export const faqItems = [
   {
+    q: "RR DESIGN nə edir?",
+    a: "RR DESIGN Bakıda yerləşən studio-dur. Yerli bizneslər üçün sahə website-ləri və Instagram/WhatsApp DM Bot qururuq. Vizitka sayt kampaniyası 100 AZN, 24 saat.",
+  },
+  {
+    q: "Bakıda sayt hazırlanması nə qədərdir?",
+    a: "RR DESIGN-də vizitka sayt 100 AZN-dir (ilk müştərilər, 24 saat). Tam sahə saytı demo-nun fərdiləşdirilməsindən asılıdır. WhatsApp-dan konkret paket göndəririk, gizli ödəniş yoxdur.",
+  },
+  {
     q: "Qiymət necə hesablanır?",
     a: "Sahə demo-sunun fərdiləşdirilməsi ilə sıfırdan sistem fərqlidir. WhatsApp-dan yazın, konkret paket göndəririk. Gizli ödəniş yoxdur.",
   },
   {
     q: "Nə qədər vaxta hazır olur?",
-    a: "Brend dəyişimi 2–3 gün, avtomatlaşdırma hesabın Business tipindən asılıdır. Vizitka sayt kampaniyasında 24 saat hədəflənir.",
+    a: "Brend dəyişimi 2–3 gün, DM Bot hesabın Business tipindən asılıdır. Vizitka sayt kampaniyasında 24 saat hədəflənir.",
   },
   {
     q: "Demo-nu öz brendimə uyğunlaşdırmaq olur?",
     a: "Bəli. Ad, rəng, mətn, şəkil, WhatsApp — hamısı sizindir.",
   },
   {
-    q: "DM avtomatlaşdırma üçün nə lazımdır?",
-    a: "Instagram Professional hesabı və WhatsApp Business nömrəsi kifayətdir.",
+    q: "DM Bot nədir və nə lazımdır?",
+    a: "DM Bot Instagram və WhatsApp mesajlarına 24/7 ilk cavab verir, qiymət/randevu soruşur, lead-i sizə ötürür. Instagram Professional hesabı və WhatsApp Business nömrəsi kifayətdir.",
   },
   {
     q: "Hosting harada olur?",

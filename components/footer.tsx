@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, SITE_DOMAIN } from "@/lib/content";
-import { waDefault } from "@/lib/whatsapp";
+import { WHATSAPP_DISPLAY, WHATSAPP_TEL, waDefault } from "@/lib/whatsapp";
 
 export function Footer() {
   return (
@@ -17,8 +17,13 @@ export function Footer() {
             />
             <span className="font-display text-[15px] font-bold">RR DESIGN</span>
           </a>
-          <p className="mt-3 max-w-xs text-sm text-white/60">
-            Website & Automation · Bakı
+          <p className="mt-3 max-w-sm text-sm text-white/60">
+            Sayt hazırlanması və DM Bot · Bakı, Azərbaycan
+          </p>
+          <p className="mt-2 text-sm text-white/55">
+            <a href={WHATSAPP_TEL} className="hover:text-copper">
+              {WHATSAPP_DISPLAY}
+            </a>
           </p>
         </div>
         <div className="flex flex-col items-start gap-2 text-sm sm:items-end">

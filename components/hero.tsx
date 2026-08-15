@@ -28,8 +28,8 @@ export function Hero() {
             <span className="block">Nəticə.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
-            Yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website-lər və
-            Instagram DM-lərini cavabsız qoymayan avtomatlaşdırma.
+            Bakıda yerli bizneslər üçün 24 saata hazır, sahənizə uyğun website
+            və Instagram DM-lərini cavabsız qoymayan DM Bot.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#saheler" className="btn-primary">

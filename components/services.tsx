@@ -13,7 +13,7 @@ const items = [
   },
   {
     num: "02",
-    title: "DM avtomatlaşdırma",
+    title: "DM Bot",
     body: "Instagram və WhatsApp-da gələn mesajlar cavabsız qalmır. Qiymət, randevu, ünvan - bot soruşur, lead-i toplayır, sizə ötürür.",
     points: ["Instagram DM və komment", "WhatsApp satış axını", "24/7 ilk cavab"],
   },
@@ -37,6 +37,10 @@ export function Services() {
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
             Xidmətlər
           </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-mute sm:text-lg">
+            Bakıda sayt hazırlanması, sahə website-ləri və Instagram/WhatsApp DM
+            Bot — satış üçün konkret alətlər.
+          </p>
         </FadeIn>
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {items.map((item, i) => (
